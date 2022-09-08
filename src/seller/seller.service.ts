@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateSellerDto } from './dto/create-seller.dto';
 import { Seller } from './interfaces/seller.entity';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class SellerService {
@@ -18,15 +19,12 @@ export class SellerService {
 
         const newSeller = new this.sellerModel({
             ...createSellerDto,
-            //password: await bcrypt.hash(createSellerDto.password, 10)
+            password: await bcrypt.hash(createSellerDto.password, 10)
         });
 
         await newSeller.save();
-
         newSeller.password =  undefined;
-
         return newSeller;
-
     }
 
 
