@@ -2,24 +2,24 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { UnauthorizedError } from './errors/unauthorized.error';
-import { Seller } from 'src/seller/interfaces/seller.entity';
-import { SellerService } from 'src/seller/seller.service';
-import { SellerPayload } from './models/SellerPayload';
-import { SellerToken } from './models/SellerToken';
+import { User } from 'src/user/interfaces/user.entity';
+import { UserService } from 'src/user/user.service';
+import { UserPayload } from './models/UserPayload';
+import { UserToken } from './models/UserToken';
 
 
 @Injectable()
 export class AuthService {
     constructor(
         private readonly jwtService: JwtService,
-        private readonly sellerService: SellerService
+        private readonly userService: UserService
     ) { }
 
-    async login(seller: Seller): Promise<SellerToken> {
-        const payload: SellerPayload = {
-            sub: seller.id,
-            email: seller.email,
-            name: seller.name
+    async login(user: User): Promise<UserToken> {
+        const payload: UserPayload = {
+            sub: user.id,
+            email: user.email,
+            name: user.name
         };
 
         return {
@@ -27,14 +27,14 @@ export class AuthService {
         };
     }
 
-    async validateSeller(email: string, password: string): Promise<Seller> {
-        const seller = await this.sellerService.findByEmail(email);
+    async validateUser(email: string, password: string): Promise<User> {
+        const user = await this.userService.findByEmail(email);
 
-        const isPasswordValid = await bcrypt.compare(password, seller.password);
+        const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (isPasswordValid) {
             return {
-                ...seller,
+                ...user,
                 password: undefined
             };
         }

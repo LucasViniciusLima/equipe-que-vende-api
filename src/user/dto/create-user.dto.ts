@@ -1,9 +1,9 @@
 import { IsEmail, IsString, Matches, MaxLength, MinLength } from "class-validator";
-import { Seller } from "../interfaces/seller.entity";
+import { User } from "../interfaces/user.entity";
 
 
 
-export class CreateSellerDto extends Seller{
+export class CreateUserDto extends User{
     @IsEmail()
     email: string;
 

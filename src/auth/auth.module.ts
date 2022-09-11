@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { SellerModule } from 'src/seller/seller.module';
+import { UserModule } from 'src/user/user.module';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { LoginValidationMiddleware } from './middlewares/login-validation.middleware';
@@ -10,10 +10,10 @@ import { AuthService } from './auth.service';
 
 @Module({
   imports: [
-    SellerModule,
+    UserModule,
     PassportModule,
     JwtModule.register({
-      secrete: process.env.JWT_SECRET,
+      secret: "JWT_SECRET inst",
       signOptions: { expiresIn: '7d'}
     })
   ],
