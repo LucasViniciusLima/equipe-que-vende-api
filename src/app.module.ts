@@ -6,13 +6,15 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import { SaleModule } from './sale/sale.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot("mongodb+srv://lucas_bezerra:MJ451CbLmZCnypom@cluster0.u0obv.mongodb.net/EquipeQueVende?retryWrites=true&w=majority",
       { useNewUrlParser: true, useUnifiedTopology: true }),
     UserModule,
-    AuthModule
+    AuthModule,
+    SaleModule
   ],
   controllers: [AppController],
   providers: [AppService,
