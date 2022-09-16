@@ -2,7 +2,6 @@ import { IsEmail, IsString, Matches, MaxLength, MinLength } from "class-validato
 import { User } from "../interfaces/user.entity";
 
 
-
 export class CreateUserDto extends User{
     @IsEmail()
     email: string;
