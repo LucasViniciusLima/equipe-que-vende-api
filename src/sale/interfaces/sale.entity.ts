@@ -1,9 +1,11 @@
 import { Contact } from "./contact-sale.entity";
 
 export class Sale {
-    id?: number;
+    payload: Payload;
+}
 
-    codUser: string;
+export class Payload{
+    //codUser?: string;
     contact: Contact;
 
     status: string;
