@@ -10,7 +10,9 @@ export class SaleService {
     constructor(@InjectModel('Sale') private readonly saleModel: Model<Sale>) {}
 
     async creatSale(createSaleDto: CreateSaleDto): Promise<Sale> {
-        const newSale = new this.saleModel(createSaleDto);
+        const newSale = new this.saleModel({
+            ...createSaleDto.payload
+        });
 
         await newSale.save();
         return newSale;
