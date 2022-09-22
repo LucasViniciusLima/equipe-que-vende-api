@@ -5,6 +5,6 @@ export const userSchema = new mongoose.Schema({
     email: { type: String, unique: true },
     password: String,
     profilePhoto: String,
-    codUser: { type: String, unique: true }
+    checkout_id: { type: String, unique: true }
     
 }, { timestamps: true, collection: 'User'});

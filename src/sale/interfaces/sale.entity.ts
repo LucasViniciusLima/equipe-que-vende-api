@@ -5,7 +5,8 @@ export class Sale {
 }
 
 export class Payload{
-    //codUser?: string;
+    source: Source;
+
     contact: Contact;
 
     status: string;
@@ -19,6 +20,11 @@ export class Payload{
 class Dates {
     created_at: string;
     confirmed_at: string;
+}
+
+class Source{
+    checkout_id: string;
+    checkout_name: string;
 }
 
 class Payment {

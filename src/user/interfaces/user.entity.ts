@@ -4,5 +4,5 @@ export class User{
     password: string;
     email: string;
     profilePhoto: string;
-    codUser: string;
+    checkout_id: string;
 }

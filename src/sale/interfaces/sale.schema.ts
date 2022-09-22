@@ -20,6 +20,10 @@ export const saleSchema = new mongoose.Schema({
         name: String,
         phone_local_code: String,
         phone_number: String
+    },
+    source: {
+        checkout_id: String,
+        checkout_name: String
     }
 
 

@@ -11,7 +11,8 @@ export class SaleService {
 
     async creatSale(createSaleDto: CreateSaleDto): Promise<Sale> {
         const newSale = new this.saleModel({
-            ...createSaleDto.payload
+            ...createSaleDto.payload,
+            source: createSaleDto.payload.source
         });
 
         await newSale.save();
