@@ -17,4 +17,6 @@ export class CreateUserDto extends User{
     @IsString()
     name: string;
 
+    @IsString()
+    checkout_id: string;
 }

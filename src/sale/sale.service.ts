@@ -12,7 +12,7 @@ export class SaleService {
     async creatSale(createSaleDto: CreateSaleDto): Promise<Sale> {
         const newSale = new this.saleModel({
             ...createSaleDto.payload,
-            source: createSaleDto.payload.source
+            source: createSaleDto.payload.source.pptc
         });
 
         await newSale.save();

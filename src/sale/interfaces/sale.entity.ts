@@ -23,6 +23,10 @@ class Dates {
 }
 
 class Source{
+    pptc: Pptc;
+}
+
+class Pptc{
     checkout_id: string;
     checkout_name: string;
 }
