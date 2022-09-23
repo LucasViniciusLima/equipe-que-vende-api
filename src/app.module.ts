@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { SaleModule } from './sale/sale.module';
+import { RankingModule } from './ranking/ranking.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { SaleModule } from './sale/sale.module';
       { useNewUrlParser: true, useUnifiedTopology: true }),
     UserModule,
     AuthModule,
-    SaleModule
+    SaleModule,
+    RankingModule
   ],
   controllers: [AppController],
   providers: [AppService,

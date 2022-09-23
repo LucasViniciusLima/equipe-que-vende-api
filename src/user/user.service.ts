@@ -32,4 +32,8 @@ export class UserService {
         return this.userModel.findOne({ email });
     }
 
+    async findByCheckoutId(checkout_id: string) {
+        return await this.userModel.findOne({ checkout_id });
+    }
+
 }
