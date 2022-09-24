@@ -62,6 +62,21 @@ export class RankingService {
         return rankingExist;
     }
 
+    async removeSelerPoint(checkout_id: string) {
+        const date = new Date();
+        const dateMonthAndYear = (date.getMonth() + 1) + "/" + date.getFullYear();
+        const user = await this.userService.findByCheckoutId(checkout_id);
+        const rankingExist = await this.rankingModel.findOne({ dateMonthAndYear }).exec();
+
+        if (!user || !rankingExist) return;
+
+        rankingExist?.personalRanks.forEach((prank, index) => {
+            if (prank.userId == user.id) {
+                rankingExist.personalRanks[index].salesCount--;
+            }
+        });
+    }
+
     createAPersonalRanking(userId: string): PersonalRank {
         const personalRank = new PersonalRank();
         personalRank.salesCount = 1;
