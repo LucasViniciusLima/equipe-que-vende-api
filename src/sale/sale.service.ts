@@ -10,25 +10,33 @@ export class SaleService {
 
     constructor(
         private readonly rankingService: RankingService,
-        @InjectModel('Sale') private readonly saleModel: Model<Sale>) {}
+        @InjectModel('Sale') private readonly saleModel: Model<Sale>) { }
 
     async creatSale(createSaleDto: CreateSaleDto): Promise<Sale> {
 
-        if(createSaleDto.payload.status == "approved" || createSaleDto.payload.status == "refunded" || createSaleDto.payload.status == "chargeback") {
+        if (createSaleDto.payload.status == "approved" || createSaleDto.payload.status == "refunded" || createSaleDto.payload.status == "chargeback") {
             const newSale = new this.saleModel({
                 ...createSaleDto.payload,
                 source: createSaleDto.payload.source.pptc
             });
-    
+
             await newSale.save();
-            
-            if(createSaleDto.payload.status == "approved") this.rankingService.updateRanking(createSaleDto);
+
+            if (createSaleDto.payload.status == "approved") this.rankingService.updateRanking(createSaleDto);
             else this.rankingService.removeSelerPoint(createSaleDto.payload.source.pptc.checkout_id);
 
             return newSale;
         }
-        
+
         return;
+    }
+
+    async getSalesByCheckoutId(checkout_id: string): Promise<Sale[]> {
+        const salesList = await this.saleModel.find().exec();
+
+        const filterSalesList = salesList.filter((item: any) => item.source.checkout_id == checkout_id);
+
+        return filterSalesList;
     }
 
 }
