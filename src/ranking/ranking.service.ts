@@ -75,6 +75,9 @@ export class RankingService {
                 rankingExist.personalRanks[index].salesCount--;
             }
         });
+
+        await this.rankingModel.findOneAndUpdate({ dateMonthAndYear }, { $set: rankingExist }).exec();
+        return rankingExist;
     }
 
     createAPersonalRanking(userId: string): PersonalRank {

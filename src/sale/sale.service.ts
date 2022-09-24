@@ -14,7 +14,7 @@ export class SaleService {
 
     async creatSale(createSaleDto: CreateSaleDto): Promise<Sale> {
 
-        if(createSaleDto.payload.status == "approved") {
+        if(createSaleDto.payload.status == "approved" || createSaleDto.payload.status == "refunded" || createSaleDto.payload.status == "chargeback") {
             const newSale = new this.saleModel({
                 ...createSaleDto.payload,
                 source: createSaleDto.payload.source.pptc
@@ -22,7 +22,8 @@ export class SaleService {
     
             await newSale.save();
             
-            this.rankingService.updateRanking(createSaleDto);
+            if(createSaleDto.payload.status == "approved") this.rankingService.updateRanking(createSaleDto);
+            else this.rankingService.removeSelerPoint(createSaleDto.payload.source.pptc.checkout_id);
 
             return newSale;
         }
