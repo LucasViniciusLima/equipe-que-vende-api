@@ -39,4 +39,9 @@ export class SaleService {
         return filterSalesList;
     }
 
+    async getAllSales(): Promise<Sale[]> {
+        const salesList = await this.saleModel.find().exec();
+        return salesList;
+    }
+
 }

@@ -21,4 +21,10 @@ export class SaleController {
     async getSalesByCheckoutId(@Param() params: any): Promise<Sale[]> {        
         return await this.saleService.getSalesByCheckoutId(params.id);
     }
+
+    @IsPublic()
+    @Get()
+    async getAllSales(): Promise<Sale[]> {
+        return await this.saleService.getAllSales();
+    }
 }
