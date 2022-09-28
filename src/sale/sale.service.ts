@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { RankingService } from 'src/ranking/ranking.service';
@@ -31,7 +31,9 @@ export class SaleService {
         return;
     }
 
-    async getSalesByCheckoutId(checkout_id: string): Promise<Sale[]> {
+    async getSalesByCheckoutId(checkout_id: string): Promise<Sale[]> {      
+        if(checkout_id == '') throw new BadRequestException(`CheckoutId cannot be null`);
+
         const salesList = await this.saleModel.find().exec();
 
         const filterSalesList = salesList.filter((item: any) => item.source.checkout_id == checkout_id);
