@@ -39,7 +39,9 @@ export class UserService {
     }
 
     async findByCheckoutId(checkout_id: string) {
-        return await this.userModel.findOne({ checkout_id });
+        const user = await this.userModel.findOne({ checkout_id });
+        user.password = null;
+        return user;
     }
 
 }

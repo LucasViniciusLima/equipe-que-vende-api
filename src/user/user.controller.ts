@@ -22,4 +22,9 @@ export class UserController {
         return this.userService.getUser(params.email);
     }
 
+    @Get('checkoutid/:id')
+    async getByCheckoutId(@Param() params: any): Promise<User> {
+        return this.userService.findByCheckoutId(params.id);
+    }
+
 }
