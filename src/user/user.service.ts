@@ -34,13 +34,13 @@ export class UserService {
 
     async getUser(email: string){
         const user = await this.userModel.findOne({ email });
-        user.password = null;
+        user.password = '';
         return user;
     }
 
     async findByCheckoutId(checkout_id: string) {
         const user = await this.userModel.findOne({ checkout_id });
-        user.password = null;
+        user.password = '';
         return user;
     }
 
