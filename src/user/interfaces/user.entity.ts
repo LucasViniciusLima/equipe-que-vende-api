@@ -5,4 +5,5 @@ export class User{
     email: string;
     profilePhoto: string;
     checkout_id: string;
+    admin: boolean;
 }
