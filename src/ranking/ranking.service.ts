@@ -14,7 +14,7 @@ export class RankingService {
 
     async createMonthRanking(userId: string) {
         const date = new Date();
-        const dateMonthAndYear = (date.getMonth() + 1) + "/" + date.getFullYear();
+        const dateMonthAndYear = (date.getMonth() + 1) + "-" + date.getFullYear();
 
         const rankingExist = await this.rankingModel.findOne({ dateMonthAndYear }).exec();
 
@@ -34,7 +34,7 @@ export class RankingService {
 
     async updateRanking(sale: Sale) {
         const date = new Date();
-        const dateMonthAndYear = (date.getMonth() + 1) + "/" + date.getFullYear();
+        const dateMonthAndYear = (date.getMonth() + 1) + "-" + date.getFullYear();
 
         const rankingExist = await this.rankingModel.findOne({ dateMonthAndYear }).exec();
         const user = await this.userService.findByCheckoutId(sale.payload.source.pptc.checkout_id);
@@ -64,7 +64,7 @@ export class RankingService {
 
     async removeSelerPoint(checkout_id: string) {
         const date = new Date();
-        const dateMonthAndYear = (date.getMonth() + 1) + "/" + date.getFullYear();
+        const dateMonthAndYear = (date.getMonth() + 1) + "-" + date.getFullYear();
         const user = await this.userService.findByCheckoutId(checkout_id);
         const rankingExist = await this.rankingModel.findOne({ dateMonthAndYear }).exec();
 
@@ -87,8 +87,20 @@ export class RankingService {
         return personalRank;
     }
 
-    async getRanking() {
-        return await this.rankingModel.find().exec();
+    async getRanking(dateMonthAndYear: string): Promise<any> {
+        const ranking = await this.rankingModel.findOne({ dateMonthAndYear }).exec();
+
+        if (!ranking) throw new BadRequestException(`Ranking com a data ${dateMonthAndYear} não existe`);
+
+        let rankingList: any = ranking.personalRanks;
+
+        const populatedRanking = await Promise.all(rankingList.map(async (rank: any) => {
+            let nUser = { salesCount: rank.salesCount, user: {} };
+            nUser.user = await this.userService.getUserByIdForRankingForRanking(rank.userId);            
+            return nUser;
+        }));
+
+        return populatedRanking;
     }
 
 }

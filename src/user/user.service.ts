@@ -40,4 +40,11 @@ export class UserService {
         return await this.userModel.findOne({ checkout_id });
     }
 
+    async getUserByIdForRankingForRanking(id: string) {
+        const user = await this.userModel.findById(id);
+        const nUser = {name: user.name, email: user.email, profilePhoto: user.profilePhoto};  
+
+        return nUser;
+    }
+
 }
