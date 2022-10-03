@@ -87,5 +87,8 @@ export class RankingService {
         return personalRank;
     }
 
+    async getRanking() {
+        return await this.rankingModel.find().exec();
+    }
 
 }
