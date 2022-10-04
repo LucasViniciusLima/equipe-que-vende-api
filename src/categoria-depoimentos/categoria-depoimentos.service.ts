@@ -14,7 +14,7 @@ export class CategoriaDepoimentosService {
         const { categoria } = categoriaDto;
         const categoriaEncontrada = await this.categoriaModel.findOne({ categoria });
 
-        if(categoriaEncontrada) {
+        if (categoriaEncontrada) {
             throw new BadRequestException(`Categoria já existente`);
         }
 
@@ -23,8 +23,21 @@ export class CategoriaDepoimentosService {
         return await categoriaCriada.save();
     }
 
-    async vincularItemACategoria(itemId: string, categoria: string) {
+    async vincularItemACategoria(itemId: any, categoria: string) {
+        const categoriaEncontrada = await this.categoriaModel.findOne({ categoria });
 
+        if (!categoriaEncontrada) {
+            throw new BadRequestException(`Categoria inexistente`);
+        }
+        
+        categoriaEncontrada.depoimentosFoto.push(itemId);
+
+        await this.categoriaModel.findOneAndUpdate({ categoria }, { $set: categoriaEncontrada }).exec();
+    }
+
+    async getItensCategoria() {
+        const categorias = await this.categoriaModel.find().populate('DepoimentoFotos').exec();
+        return categorias;//still dont working
     }
 
 }

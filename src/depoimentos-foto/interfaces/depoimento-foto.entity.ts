@@ -1,6 +1,7 @@
+import { Document } from "mongoose";
 
-
-export class DepoimentoFotos{
+export class DepoimentoFotos extends Document{
+    id?: string;
     title: string;
     data: string;
 }
