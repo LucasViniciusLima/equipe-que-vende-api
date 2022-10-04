@@ -8,6 +8,8 @@ import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { SaleModule } from './sale/sale.module';
 import { RankingModule } from './ranking/ranking.module';
+import { CategoriaDepoimentosModule } from './categoria-depoimentos/categoria-depoimentos.module';
+import { DepoimentosFotoModule } from './depoimentos-foto/depoimentos-foto.module';
 
 @Module({
   imports: [
@@ -16,7 +18,9 @@ import { RankingModule } from './ranking/ranking.module';
     UserModule,
     AuthModule,
     SaleModule,
-    RankingModule
+    RankingModule,
+    CategoriaDepoimentosModule,
+    DepoimentosFotoModule
   ],
   controllers: [AppController],
   providers: [AppService,
