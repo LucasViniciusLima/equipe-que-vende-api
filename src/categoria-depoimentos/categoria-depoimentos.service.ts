@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { DepoimentoFotos } from 'src/depoimentos-foto/interfaces/depoimento-foto.entity';
 import { CategoriaDepoimentoDto } from './dto/categoria-depoimento.dto';
 import { CategoriaDepoimento } from './interfaces/categoria-depoimento.entity';
 
@@ -29,15 +30,14 @@ export class CategoriaDepoimentosService {
         if (!categoriaEncontrada) {
             throw new BadRequestException(`Categoria inexistente`);
         }
-        
+
         categoriaEncontrada.depoimentosFoto.push(itemId);
 
         await this.categoriaModel.findOneAndUpdate({ categoria }, { $set: categoriaEncontrada }).exec();
     }
 
-    async getItensCategoria() {
-        const categorias = await this.categoriaModel.find().populate('DepoimentoFotos').exec();
-        return categorias;//still dont working
+    async getItensCategoria(): Promise<Array<CategoriaDepoimento>> {        
+        return await this.categoriaModel.find().populate({path:'depoimentosFoto',select: 'title data'}).exec();
     }
 
 }

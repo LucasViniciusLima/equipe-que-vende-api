@@ -13,4 +13,5 @@ export class DepoimentoFotoController {
         @Param('categoria') categoria: string) {
         return await this.depoimentoFotoService.salvarFotoBase64(depoimentoDto, categoria);
     }
+    
 }

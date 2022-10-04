@@ -13,14 +13,15 @@ export class CategoriaDepoimentosController {
     @Post()
     @UsePipes(ValidationPipe)
     async criarCategoria(
-        @Body() criarCategoriaDto: CategoriaDepoimentoDto        
+        @Body() criarCategoriaDto: CategoriaDepoimentoDto
     ): Promise<CategoriaDepoimento> {
         return await this.categoriaDepoimentosService.criarNovaCategoria(criarCategoriaDto);
     }
 
     @Get()
-    async verItensCategoria(){
+    async verItensCategoria(): Promise<Array<CategoriaDepoimento>> {
         return await this.categoriaDepoimentosService.getItensCategoria();
     }
+    
 
 }

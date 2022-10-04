@@ -2,6 +2,6 @@ import { DepoimentoFotos } from "src/depoimentos-foto/interfaces/depoimento-foto
 
 export class CategoriaDepoimento{
     categoria: string;
-    depoimentosVideo;
+    depoimentosVideo: Array<any>;
     depoimentosFoto: Array<DepoimentoFotos>; 
 }
