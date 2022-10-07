@@ -7,13 +7,13 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
-    constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
+    constructor(@InjectModel('User') private readonly userModel: Model<User>) { }
 
 
-    async create(createUserDto:CreateUserDto): Promise<User>{
+    async create(createUserDto: CreateUserDto): Promise<User> {
         const userExists = await this.findByEmail(createUserDto.email);
 
-        if(userExists) {
+        if (userExists) {
             throw new BadRequestException(`Usuario já existe`);
         }
 
@@ -23,16 +23,16 @@ export class UserService {
         });
 
         await newUser.save();
-        newUser.password =  undefined;
+        newUser.password = undefined;
         return newUser;
     }
 
 
-    findByEmail(email: string){
+    findByEmail(email: string) {
         return this.userModel.findOne({ email });
     }
 
-    async getUser(email: string){        
+    async getUser(email: string) {
         return await this.userModel.findOne({ email });
     }
 
@@ -42,7 +42,7 @@ export class UserService {
 
     async getUserByIdForRankingForRanking(id: string) {
         const user = await this.userModel.findById(id);
-        const nUser = {name: user.name, email: user.email, profilePhoto: user.profilePhoto};  
+        const nUser = { name: user.name, email: user.email, profilePhoto: user.profilePhoto };
 
         return nUser;
     }
