@@ -16,13 +16,11 @@ export class SaleController {
         return await this.saleService.creatSale(createSaleDto);
     }
 
-    @IsPublic()//retirar is public ao terminar
     @Get('/:id')
     async getSalesByCheckoutId(@Param() params: any): Promise<Sale[]> {        
         return await this.saleService.getSalesByCheckoutId(params.id);
     }
-
-    @IsPublic()//retirar is public ao terminar
+    
     @Get()
     async getAllSales(): Promise<Sale[]> {
         return await this.saleService.getAllSales();
