@@ -37,7 +37,7 @@ export class RankingService {
         const dateMonthAndYear = (date.getMonth() + 1) + "-" + date.getFullYear();
 
         const rankingExist = await this.rankingModel.findOne({ dateMonthAndYear }).exec();
-        const user = await this.userService.findByCheckoutId(sale.payload.source.pptc.checkout_id);
+        const user = await this.userService.findByCheckoutId(sale.last_transaction.source.pptc.checkout_id);
 
         if (!user) return;
 

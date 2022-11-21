@@ -5,7 +5,7 @@
     "cancel_reason": null,
     "cancelled_by": {
       "name": null,
-      "email":null,
+      "email":null
     },
     "dates": {
       "started_at": "2020-05-07T11:35:57Z",
