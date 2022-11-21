@@ -1,13 +1,9 @@
 import { Contact } from "./contact-sale.entity";
 
-export class Sale {
-    last_transaction: Payload;
-}
-
-export class Payload{
+export class Sale{
     source: Source;
 
-    subscriber: Contact;
+    contact: Contact;
 
     status: string;
     

@@ -1,162 +1,155 @@
 {
-    "api_token": "mLjcGjzKGnXme5b7gbuKMggL34Ecdt5NHGihxfWr",
-    "charged_every_days": 30,
-    "charged_times": 1,
-    "cancel_reason": null,
-    "cancelled_by": {
-      "name": null,
-      "email":null
+  "affiliations": [
+    
+  ],
+  "api_token": "mLjcGjzKGnXme5b7gbuKMggL34Ecdt5NHGihxfWr",
+  "checkout_url": "https:\/\/clkdmg.test\/subscribe\/9059bdb6-0ca4-4253-b405-482df6393537",
+  "contact": {
+    "id": "906d1e37-de6a-4f4d-8271-91ecd0d65ec6",
+    "name": "Nome Contato",
+    "email": "email@email.com",
+    "doc": "01234567890",
+    "phone_number": "1234567980",
+    "phone_local_code": "55",
+    "address": "Rua Terra Rica",
+    "address_number": "123",
+    "address_comp": "",
+    "address_district": "Centro",
+    "address_city": "Pinhais",
+    "address_state": "PR",
+    "address_country": "BR",
+    "address_zip_code": "83324090",
+    "lead": {
+      "first_tracking": {
+        "name": "TEstes",
+        "type": "form",
+        "publisher": "",
+        "tracked_at": "2020-02-18T15:50:11Z"
+      },
+      "last_tracking": {
+        "name": "Teste Tracking Plano",
+        "type": "lead",
+        "publisher": "Adwords",
+        "tracked_at": "2020-04-02T16:03:08Z"
+      }
+    }
+  },
+  "dates": {
+    "ordered_at": "2020-05-07T11:33:45Z",
+    "confirmed_at": "2020-05-07T11:35:57Z",
+    "expires_at": null,
+    "canceled_at": null,
+    "warranty_until": "2020-06-06T11:35:57Z",
+    "unavailable_until": "2020-06-06T11:35:57Z"
+  },
+  "ecommerces": [
+    
+  ],
+  "id": "9081534a-7512-4dab-9172-218c1dc1f263",
+  "last_transaction": [
+    
+  ],
+  "payment": {
+    "method": null,
+    "marketplace_id": "ch_1ke4QoCQOs7VE6VY",
+    "marketplace_name": "mundipagg",
+    "discount_value": 0,
+    "currency": "BRL",
+    "total": 500,
+    "affiliate_value": 0,
+    "net": 500,
+    "gross": 500,
+    "tax": {
+      "value": 0,
+      "rate": 0
     },
-    "dates": {
-      "started_at": "2020-05-07T11:35:57Z",
-      "last_status_at": "2020-05-07T18:39:34Z",
-      "canceled_at": null
+    "installments": {
+      "value": "",
+      "qty": 1,
+      "interest": 0
     },
+    "refuse_reason": "Transa\u00e7\u00e3o capturada com sucesso",
+    "billet": {
+      "line": "",
+      "url": "",
+      "expiration_date": ""
+    },
+    "credit_card": {
+      "first_digits": "400000",
+      "last_digits": "0010",
+      "brand": "visa",
+      "id": "card_WLmNYk1fmKUOwBwX"
+    }
+  },
+  "product": {
+      "id": "1587151083",
+      "internal_id": "906d1e37-de6a-4f4d-8271-91ecd0d65e32",
+      "name": "Assinatura Mundipagg",
+      "unit_value": 500,
+      "image_url": "",
+      "total_value": 500,
+      "type": "plan",
+      "marketplace_name": "mundipagg",
+      "marketplace_id": "1587151083",
+      "qty": 1,
+      "producer": {
+        "marketplace_id": "01234567890",
+        "name": "Produtor Mundipagg",
+        "contact_email": ""
+      }
+    },
+  "shipment": {
+    "value": 105.68,
+    "carrier": "Correios",
+    "service": "SEDEX",
+    "tracking": "ME20000BGL2BR",
+    "delivery_time": 15,
+    "status": [
+      
+    ]
+  },
+  "shipping": {
+    "name": "Standard",
+    "value": 0
+  },
+  "source": {
+    "source": "",
+    "checkout_source": "",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "utm_term": "",
+    "pptc": [
+      
+    ]
+  },
+  "status": "approved",
+  "subscription": {
     "id": "sub_BOAEj2WTKoclmg4X",
-    "last_status": "active",
-    "last_transaction": {
-      "checkout_url": "https:\/\/clkdmg.test\/subscribe\/9059bdb6-0ca4-4253-b405-482df6393537",
-      "id": "9081534a-7512-4dab-9172-218c1dc1f263",
-      "status": "approved",
-      "type": "producer",
-      "dates": {
-        "ordered_at": "2020-05-07T11:33:45Z",
-        "confirmed_at": "2020-05-07T11:35:57Z",
-        "expires_at": null,
-        "canceled_at": null,
-        "warranty_until": "2020-06-06T11:35:57Z",
-        "unavailable_until": "2020-06-06T11:35:57Z"
-      },
-      "affiliations": [
-        
-      ],
-      "shipment": {
-        "value": 105.68,
-        "carrier": "Correios",
-        "service": "SEDEX",
-        "tracking": "ME20000BGL2BR",
-        "delivery_time": 15,
-        "status": [
-          
-        ]
-      },
-      "shipping": {
-        "name": "Standard",
-        "value": 0
-      },
-      "contact": {
-        "id": "906d1e37-de6a-4f4d-8271-91ecd0d65ec6",
-        "name": "Nome Contacto",
-        "email": "email@email.email",
-        "doc": "01234567890",
-        "phone_number": "1234567980",
-        "phone_local_code": "55",
-        "address": "Rua Terra Rica",
-        "address_number": "123",
-        "address_comp": "",
-        "address_district": "Centro",
-        "address_city": "Pinhais",
-        "address_state": "PR",
-        "address_country": "BR",
-        "address_zip_code": "83324090",
-        "lead": {
-          "first_tracking": {
-            "name": "TEstes",
-            "type": "form",
-            "publisher": "",
-            "tracked_at": "2020-02-18T15:50:11Z"
-          },
-          "last_tracking": {
-            "name": "Teste Tracking Plano",
-            "type": "lead",
-            "publisher": "Adwords",
-            "tracked_at": "2020-04-02T16:03:08Z"
-          }
-        }
-      },
-      "product": {
-        "id": "1587151083",
-        "internal_id": "906d1e37-de6a-4f4d-8271-91ecd0d65e32",
-        "name": "Assinatura Mundipagg",
-        "unit_value": 500,
-        "image_url": "",
-        "total_value": 500,
-        "type": "plan",
-        "marketplace_name": "mundipagg",
-        "marketplace_id": "1587151083",
-        "qty": 1,
-        "producer": {
-          "marketplace_id": "01234567890",
-          "name": "Produtor Mundipagg",
-          "contact_email": ""
-        }
-      },
-      "source": {
-        "source": "",
-        "checkout_source": "",
-        "utm_source": "",
-        "utm_campaign": "",
-        "utm_medium": "",
-        "utm_content": "",
-        "utm_term": "",
-        "pptc": [
-          
-        ]
-      },
-      "payment": {
-        "method": null,
-        "marketplace_id": "ch_1ke4QoCQOs7VE6VY",
-        "marketplace_name": "mundipagg",
-        "marketplace_value": 0,
-        "discount_value": 0,
-        "currency": "BRL",
-        "total": 500,
-        "affiliate_value": 0,
-        "net": 500,
-        "gross": 500,
-        "tax": {
-          "value": 0,
-          "rate": 0
-        },
-        "installments": {
-          "value": "",
-          "qty": 1,
-          "interest": 0
-        },
-        "refuse_reason": "Transa\u00e7\u00e3o capturada com sucesso",
-        "billet": {
-          "line": "",
-          "url": "",
-          "expiration_date": ""
-        },
-        "credit_card": {
-          "first_digits": "400000",
-          "last_digits": "0010",
-          "brand": "visa",
-          "id": "card_WLmNYk1fmKUOwBwX"
-        }
-      },
-      "ecommerces": [
-        
-      ]
-    },
     "name": "Assinatura Mundipagg",
-    "subscriber": {
-      "id": "906d1e37-de6a-4f4d-8271-91ecd0d65ec6",
-      "name": "Nome Assinante",
-      "email": "email@email.email",
-      "doc": "01234567890",
-      "phone_number": "1234567980",
-      "phone_local_code": "55",
-      "address": "Rua Terra Rica",
-      "address_number": "123",
-      "address_comp": "",
-      "address_district": "Centro",
-      "address_city": "Pinhais",
-      "address_state": "PR",
-      "address_country": "BR",
-      "address_zip_code": "83324090"
-    },
+    "last_status": "active",
+    "charged_times": 1,
+    "charged_every_days": 30,
+    "started_at": "2020-05-07T11:35:57Z",
+    "last_status_at": "2020-05-07T11:35:57Z",
+    "canceled_at": null,
     "trial_started_at": null,
     "trial_finished_at": null
-  }
+  },
+  "invoice":{
+      "id":"in_qbaJBvDB3IzVf2PTG",
+      "period_start":"2021-04-12",
+      "period_end":"2021-04-13",
+      "charge_at":"2021-04-12",
+      "status":"paid",
+      "type":"cycle",
+      "cycle":1,
+      "value":100,
+      "tax_value":0,
+      "increment_value":0,
+      "discount_value":0,
+      "created_at":"2021-04-12T16:33:29Z"
+   },
+  "type": "producer"
+}

@@ -14,16 +14,16 @@ export class SaleService {
 
     async creatSale(createSaleDto: CreateSaleDto): Promise<Sale> {
 
-        if (createSaleDto.last_transaction.status == "approved" || createSaleDto.last_transaction.status == "refunded" || createSaleDto.last_transaction.status == "chargeback") {
+        if (createSaleDto.status == "approved" || createSaleDto.status == "refunded" || createSaleDto.status == "chargeback") {
             const newSale = new this.saleModel({
-                ...createSaleDto.last_transaction,
-                source: createSaleDto.last_transaction.source.pptc
+                ...createSaleDto,
+                source: createSaleDto.source.pptc
             });
 
             await newSale.save();
 
-            if (createSaleDto.last_transaction.status == "approved") this.rankingService.updateRanking(createSaleDto);
-            else this.rankingService.removeSelerPoint(createSaleDto.last_transaction.source.pptc.checkout_id);
+            if (createSaleDto.status == "approved") this.rankingService.updateRanking(createSaleDto);
+            else this.rankingService.removeSelerPoint(createSaleDto.source.pptc.checkout_id);
 
             return newSale;
         }
