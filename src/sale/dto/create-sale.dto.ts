@@ -4,6 +4,6 @@ import { Payload, Sale } from "../interfaces/sale.entity";
 
 export class CreateSaleDto extends Sale{
     @IsNotEmpty()
-    payload: Payload;
+    last_transaction: Payload;
 
 }

@@ -1,13 +1,13 @@
 import { Contact } from "./contact-sale.entity";
 
 export class Sale {
-    payload: Payload;
+    last_transaction: Payload;
 }
 
 export class Payload{
     source: Source;
 
-    contact: Contact;
+    subscriber: Contact;
 
     status: string;
     
