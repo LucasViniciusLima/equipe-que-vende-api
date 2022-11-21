@@ -120,9 +120,19 @@
     "utm_medium": "",
     "utm_content": "",
     "utm_term": "",
-    "pptc": [
-      
-    ]
+    "pptc": {
+      "checkout_id": "95d59bcb-bdee-470c-b744-6c1ecac14dcd",
+      "checkout_name": "Movimento 1x Amanda 997,00",
+      "tracking_id": "",
+      "tracking_name": "",
+      "tracking_publisher": "",
+      "tracking_type": "",
+      "user_name": "",
+      "utm_campaign": "",
+      "utm_content": "",
+      "utm_medium": "",
+      "utm_term": ""
+    }
   },
   "status": "approved",
   "subscription": {

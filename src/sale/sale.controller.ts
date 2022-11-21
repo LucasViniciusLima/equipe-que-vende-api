@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { IsPublic } from 'src/auth/decorators/is-public.decorator';
-import { CreateSaleDto } from './dto/create-sale.dto';
 import { Sale } from './interfaces/sale.entity';
 import { SaleService } from './sale.service';
 
@@ -12,7 +11,7 @@ export class SaleController {
     @IsPublic()
     @UsePipes(ValidationPipe)
     @Post()
-    async creatSale(@Body() createSaleDto: CreateSaleDto): Promise<Sale> {
+    async creatSale(@Body() createSaleDto: any): Promise<Sale> {
         return await this.saleService.creatSale(createSaleDto);
     }
 
