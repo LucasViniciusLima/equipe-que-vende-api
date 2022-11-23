@@ -1,6 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export const saleSchema = new mongoose.Schema({
+    transaction_id: { type: String, unique: true },
     status: String,
     dates: {
         created_at: String,

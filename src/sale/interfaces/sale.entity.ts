@@ -1,6 +1,8 @@
 import { Contact } from "./contact-sale.entity";
 
 export class Sale{
+    transaction_id?:string;
+
     source: Source;
 
     contact: Contact;
