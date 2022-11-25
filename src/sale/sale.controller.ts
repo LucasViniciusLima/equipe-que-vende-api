@@ -16,7 +16,9 @@ export class SaleController {
     @Post()
     async creatSale(@Body() createSaleDto: any): Promise<Sale> {
         this.httpService.post('https://functions-api.clint.digital/endpoints/integration/dmg/a8b61090-40db-4cbc-9b69-c657ea339256', createSaleDto).subscribe(resp=>console.log(resp));
-        this.httpService.post('https://webhook.zapcloud.com.br/webhook/efcab85975b7825028f46ca7b0f2fa42', createSaleDto).subscribe(resp=>console.log(resp));
+        
+        if (createSaleDto.status == "billet_printed") this.httpService.post('https://webhook.zapcloud.com.br/webhook/efcab85975b7825028f46ca7b0f2fa42', createSaleDto).subscribe(resp=>console.log(resp));
+        
         return await this.saleService.creatSale(createSaleDto);
     }
 
