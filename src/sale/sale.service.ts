@@ -33,9 +33,6 @@ export class SaleService {
 
             if (createSaleDto.status == "approved") this.rankingService.updateRanking(createSaleDto);
             else this.rankingService.removeSelerPoint(createSaleDto.source.pptc.checkout_id);
-
-            console.log(newSale);
-
             return newSale;
         }
 
