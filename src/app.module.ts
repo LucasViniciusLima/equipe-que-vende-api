@@ -10,6 +10,7 @@ import { SaleModule } from './sale/sale.module';
 import { RankingModule } from './ranking/ranking.module';
 import { CategoriaDepoimentosModule } from './categoria-depoimentos/categoria-depoimentos.module';
 import { DepoimentoFotoModule } from './depoimentos-foto/depoimento-foto.module';
+import { GroupsRedirectModule } from './groups-redirect/groups-redirect.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { DepoimentoFotoModule } from './depoimentos-foto/depoimento-foto.module'
     SaleModule,
     RankingModule,
     CategoriaDepoimentosModule,
-    DepoimentoFotoModule
+    DepoimentoFotoModule,
+    GroupsRedirectModule
   ],
   controllers: [AppController],
   providers: [AppService,
