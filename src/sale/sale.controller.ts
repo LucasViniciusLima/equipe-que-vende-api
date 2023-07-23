@@ -16,7 +16,8 @@ export class SaleController {
     @Post()
     async creatSale(@Body() createSaleDto: any): Promise<Sale> {
         if(createSaleDto.product.id == "1684176869"){
-            // send event to api main romanni indicacao status change
+            // send event to api main romanni indicacao status change https://movt-main-api.azurewebsites.net/api/v1/webhook/self-scheduling-webhook/guru
+            this.httpService.post('https://movt-main-api.azurewebsites.net/api/v1/webhook/self-scheduling-webhook/guru', createSaleDto).subscribe(resp=>console.log(resp));
             return;
         }
 
