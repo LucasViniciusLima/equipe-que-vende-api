@@ -24,8 +24,8 @@ export class SaleController {
         this.httpService.post('https://functions-api.clint.digital/endpoints/integration/dmg/a8b61090-40db-4cbc-9b69-c657ea339256', createSaleDto).subscribe(resp => console.log(resp));
         if (createSaleDto.status != "approved") this.httpService.post('https://webhook.pluglead.com/webhook/efcab85975b7825028f46ca7b0f2fa42', createSaleDto).subscribe(resp => console.log(resp));
 
-        if (createSaleDto.status == "approved") this.httpService.post('https://h.albato.com/wh/38/1lftefd/OueNLLyiy8i6ORyKEqwCdRL2us2KT9JRxaLNh64VEIQ', createSaleDto).subscribe(resp => console.log(resp));
-        if (createSaleDto.status == "abandoned") this.httpService.post('https://h.albato.com/wh/38/1lftefd/OueNLLyiy8i6ORyKEqwCdRL2us2KT9JRxaLNh64VEIQ', createSaleDto).subscribe(resp => console.log(resp));
+        if (createSaleDto.status == "approved") this.httpService.post('https://h.albato.com/wh/38/1lftefd/OueNLLyiy8i6ORyKEqwCdRL2us2KT9JRxaLNh64VEIQ', this.mapToAlbatoWebhook(createSaleDto)).subscribe(resp => console.log(resp));
+        if (createSaleDto.status == "abandoned") this.httpService.post('https://h.albato.com/wh/38/1lftefd/OueNLLyiy8i6ORyKEqwCdRL2us2KT9JRxaLNh64VEIQ', this.mapToAlbatoWebhook(createSaleDto)).subscribe(resp => console.log(resp));
 
         return await this.saleService.creatSale(createSaleDto);
     }
@@ -38,5 +38,19 @@ export class SaleController {
     @Get()
     async getAllSales(): Promise<Sale[]> {
         return await this.saleService.getAllSales();
+    }
+
+    private mapToAlbatoWebhook(createSaleDto: any) {
+        const { contact } = createSaleDto;
+
+        return {
+            contact_name: contact.name,
+            contact_doc: contact.doc,
+            contact_email: contact.email,
+            contact_phone_local_code: contact.phone_local_code,
+            contact_phone_number: contact.phone_number,
+            contact_id: contact.id,
+            contact_status: contact.status
+        };
     }
 }
