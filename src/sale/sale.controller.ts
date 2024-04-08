@@ -41,7 +41,7 @@ export class SaleController {
     }
 
     private mapToAlbatoWebhook(createSaleDto: any) {
-        const { contact, source, product } = createSaleDto;
+        const { contact, source, product, status } = createSaleDto;
 
         return {
             contact_name: contact.name,
@@ -50,7 +50,7 @@ export class SaleController {
             contact_phone_local_code: contact.phone_local_code,
             contact_phone_number: contact.phone_number,
             contact_id: contact.id,
-            contact_status: contact.status,
+            status: status,
             source_utm_campaign: source.utm_campaign,
             source_utm_content: source.utm_content,
             source_utm_medium: source.utm_medium,
