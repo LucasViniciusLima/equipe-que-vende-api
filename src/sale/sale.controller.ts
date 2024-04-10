@@ -51,13 +51,27 @@ export class SaleController {
             contact_phone_number: contact.phone_number,
             contact_id: contact.id,
             status: status,
+
+            contact_address: contact.address,
+            contact_address_city: contact.address_city,
+            contact_address_comp: contact.address_comp,
+            contact_address_country: contact.address_country,
+            contact_address_district: contact.address_district,
+            contact_address_number: contact.address_number,
+            contact_address_state: contact.address_state,
+            contact_address_state_full_name: contact.address_state_full_name,
+            contact_address_zip_code: contact.address_zip_code,
+
+            product_name: product.name,
+            procuct_id: product.id,
+            product_total_value: product.total_value,
+            product_unit_value: product.unit_value,
+
             source_utm_campaign: source.utm_campaign,
             source_utm_content: source.utm_content,
             source_utm_medium: source.utm_medium,
             source_utm_source: source.utm_source,
             source_utm_term: source.utm_term,
-            product_name: product.name,
-            procuct_id: product.id
         };
     }
 }
