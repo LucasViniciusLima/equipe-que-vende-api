@@ -1,0 +1,202 @@
+{
+  "affiliations": [],
+  "api_token": "MW3hWwBi9cXUomx0ZAw9Wt9KEo3Q45GZrRXBthKK",
+  "checkout_url": "https://mt.romanni.com.br/pay/9ae0b580-03d8-4b42-bfc6-5a6972e8e8be/invoice",
+  "contact": {
+    "address": "",
+    "address_city": "",
+    "address_comp": "",
+    "address_country": "BR",
+    "address_district": "",
+    "address_number": "",
+    "address_state": "",
+    "address_state_full_name": "",
+    "address_zip_code": "",
+    "company_name": "",
+    "doc": "94382778549",
+    "email": "lucastestewithUTMS@gmail.com",
+    "id": "9aa47a9b-606d-4586-a5f9-1765f9e4dbe1",
+    "lead": {
+      "first_tracking": {
+        "id": "99f335b5-eebb-4307-8e4a-a2d004fb768d",
+        "name": "Lancamento NeoPsicologia",
+        "publisher": "",
+        "tracked_at": "2024-01-19T20:11:06Z",
+        "type": "form"
+      },
+      "last_tracking": {
+        "id": "99f335b5-eebb-4307-8e4a-a2d004fb768d",
+        "name": "Lancamento NeoPsicologia",
+        "publisher": "",
+        "tracked_at": "2024-01-23T20:57:04Z",
+        "type": "form"
+      }
+    },
+    "name": "Erilandia Melo Brito Bastos",
+    "phone_local_code": "55",
+    "phone_number": "75988105441"
+  },
+  "contracts": [],
+  "dates": {
+    "canceled_at": "2024-04-08T13:15:10Z",
+    "confirmed_at": null,
+    "created_at": "2024-04-08T12:58:15Z",
+    "expires_at": "2023-12-21T03:00:00Z",
+    "ordered_at": "2024-04-08T12:58:10Z",
+    "unavailable_until": null,
+    "updated_at": "2024-04-08T13:15:10Z",
+    "warranty_until": null
+  },
+  "ecommerces": [],
+  "id": "9bc222c0-aed2-43b2-a370-14473bad4f14",
+  "infrastructure": {
+    "city": "nova serrana",
+    "city_lat_long": "-19.877771,-44.985648",
+    "country": "BR",
+    "ip": "191.55.188.156",
+    "region": "mg",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+  },
+  "invoice": {
+    "charge_at": "2023-12-22",
+    "created_at": "2023-12-18T11:31:24Z",
+    "cycle": 2,
+    "discount_value": 0,
+    "id": "in_MpMUb7CWGh90fPm90",
+    "increment_value": 0,
+    "period_end": "2024-01-20",
+    "period_start": "2023-12-21",
+    "status": "pastdue",
+    "tax_value": 0,
+    "tries": 1,
+    "try": 2,
+    "type": "cycle",
+    "value": 314.23
+  },
+  "items": [
+    {
+      "id": "1687448958",
+      "image_url": null,
+      "internal_id": "9978fb92-bf1a-41c7-8360-a5c4509de442",
+      "marketplace_id": "1687448958",
+      "marketplace_name": "pagarme",
+      "name": "Movimento Transformacional  (Parcelas)",
+      "offer": {
+        "id": "9978fb93-df93-443f-ac04-db81dec7631d",
+        "name": "Movimento Transformacional  4x"
+      },
+      "producer": {
+        "contact_email": null,
+        "marketplace_id": "1643206220",
+        "name": "Instituto Romanni"
+      },
+      "qty": 1,
+      "total_value": 314.23,
+      "type": "plan",
+      "unit_value": 314.23
+    }
+  ],
+  "last_transaction": {
+    "id": "9ae0b57f-feed-4ab2-8e6a-4e7c85e56fba",
+    "url": "https://digitalmanager.guru/admin/transactions/pagarme/2138468363"
+  },
+  "payment": {
+    "acquirer": {
+      "code": "",
+      "message": "",
+      "name": "",
+      "nsu": "",
+      "tid": ""
+    },
+    "affiliate_value": 0,
+    "can_try_again": 1,
+    "coupon": null,
+    "currency": "BRL",
+    "discount_value": 0,
+    "gross": 314.23,
+    "installments": {
+      "interest": 0,
+      "qty": 1,
+      "value": 314.23
+    },
+    "marketplace_id": "tr_GwwJCXpCNco380iRP",
+    "marketplace_name": "pagarme",
+    "marketplace_value": 0,
+    "method": "other",
+    "net": 314.23,
+    "other": null,
+    "processing_times": {
+      "delay_in_seconds": "",
+      "finished_at": "",
+      "started_at": ""
+    },
+    "refund_reason": "",
+    "refuse_reason": "",
+    "tax": {
+      "rate": 0,
+      "value": 0
+    },
+    "total": 314.23
+  },
+  "product": {
+    "id": "1687448958",
+    "image_url": "",
+    "internal_id": "9978fb92-bf1a-41c7-8360-a5c4509de442",
+    "marketplace_id": "1687448958",
+    "marketplace_name": "pagarme",
+    "name": "Movimento Transformacional  (Parcelas)",
+    "offer": {
+      "id": "9978fb93-df93-443f-ac04-db81dec7631d",
+      "name": "Movimento Transformacional  4x"
+    },
+    "producer": {
+      "contact_email": "",
+      "marketplace_id": "1643206220",
+      "name": "Instituto Romanni"
+    },
+    "qty": 1,
+    "total_value": 314.23,
+    "type": "plan",
+    "unit_value": 314.23
+  },
+  "shipment": {
+    "carrier": "",
+    "delivery_time": "",
+    "service": "",
+    "status": "",
+    "tracking": "",
+    "value": 0
+  },
+  "shipping": {
+    "name": "Standard",
+    "value": 0
+  },
+  "source": {
+    "checkout_source": null,
+    "pptc": [],
+    "source": null,
+    "utm_campaign": "source_campaing_test",
+    "utm_content": "source_content_test",
+    "utm_medium": "source_medium_test",
+    "utm_source": "source_source_test",
+    "utm_term": "source_term_test"
+  },
+  "status": "approved",
+  "subscription": {
+    "can_cancel": 0,
+    "canceled_at": "2023-12-27T03:11:31Z",
+    "charged_every_days": 30,
+    "charged_times": 1,
+    "id": "sub_E4l3VoPGpBBovfTQ",
+    "internal_id": "9aa94378-cca8-4bff-b392-db92480eae88",
+    "last_status": "canceled",
+    "last_status_at": "2023-12-27T03:11:31Z",
+    "name": "Movimento Transformacional  (Parcelas)",
+    "started_at": "2023-11-20T22:02:01Z",
+    "subscription_code": "sub_E4l3VoPGpBBovfTQ",
+    "trial_days": 0,
+    "trial_finished_at": null,
+    "trial_started_at": null
+  },
+  "type": "producer"
+}
