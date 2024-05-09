@@ -15,16 +15,11 @@ export class SaleController {
     @UsePipes(ValidationPipe)
     @Post()
     async creatSale(@Body() createSaleDto: any): Promise<Sale> {
-        this.httpService.post('https://functions-api.clint.digital/endpoints/integration/dmg/a8b61090-40db-4cbc-9b69-c657ea339256', createSaleDto).subscribe(resp => console.log(resp));
-        if (createSaleDto.status != "approved") this.httpService.post('https://webhook.pluglead.com/webhook/efcab85975b7825028f46ca7b0f2fa42', createSaleDto).subscribe(resp => console.log(resp));
-        if (createSaleDto.status == "approved") this.httpService.post('https://h.albato.com/wh/38/1lftefd/ODQmM2pA9B3Hy2U2lWNjOjGeSFdRcpEMTQXJcKfBnjQ', this.mapToAlbatoWebhook(createSaleDto)).subscribe(resp => console.log(resp));
-        if (createSaleDto.status == "abandoned") this.httpService.post('https://h.albato.com/wh/38/1lftefd/OueNLLyiy8i6ORyKEqwCdRL2us2KT9JRxaLNh64VEIQ', this.mapToAlbatoWebhook(createSaleDto)).subscribe(resp => console.log(resp));
+        this.handleClintEvent(createSaleDto);
+        this.handleAlbatoEvent(createSaleDto);
+        this.handlePlugLeadEvent(createSaleDto);
+        this.handleMOVTPlatformEvent(createSaleDto);
 
-        if (createSaleDto.product.id == "1684176869") {
-            // send event to api main romanni indicacao status change https://movt-main-api.azurewebsites.net/api/v1/webhook/self-scheduling-webhook/guru
-            this.httpService.post('https://movt-main-api.azurewebsites.net/api/v1/webhook/self-scheduling-webhook/guru', createSaleDto).subscribe(resp => console.log(resp));
-            return;
-        }
         return await this.saleService.creatSale(createSaleDto);
     }
 
@@ -36,6 +31,29 @@ export class SaleController {
     @Get()
     async getAllSales(): Promise<Sale[]> {
         return await this.saleService.getAllSales();
+    }
+
+    private handleMOVTPlatformEvent(createSaleDto: any): void {
+        if (createSaleDto.product.id == "1684176869") {
+            // send event to api main romanni indicacao status change https://movt-main-api.azurewebsites.net/api/v1/webhook/self-scheduling-webhook/guru
+            this.httpService.post('https://movt-main-api.azurewebsites.net/api/v1/webhook/self-scheduling-webhook/guru', createSaleDto).subscribe(resp => console.log(resp));
+            return;
+        }
+    }
+
+    private handleClintEvent(createSaleDto: any): void {
+        let clintVersion = createSaleDto;
+        clintVersion.status = clintVersion.status == "waiting_payment" ? "canceled" : clintVersion.status;
+        this.httpService.post('https://functions-api.clint.digital/endpoints/integration/dmg/a8b61090-40db-4cbc-9b69-c657ea339256', clintVersion).subscribe(resp => console.log(resp));
+    }
+
+    private handleAlbatoEvent(createSaleDto: any): void {
+        if (createSaleDto.status == "approved") this.httpService.post('https://h.albato.com/wh/38/1lftefd/ODQmM2pA9B3Hy2U2lWNjOjGeSFdRcpEMTQXJcKfBnjQ', this.mapToAlbatoWebhook(createSaleDto)).subscribe(resp => console.log(resp));
+        if (createSaleDto.status == "abandoned") this.httpService.post('https://h.albato.com/wh/38/1lftefd/OueNLLyiy8i6ORyKEqwCdRL2us2KT9JRxaLNh64VEIQ', this.mapToAlbatoWebhook(createSaleDto)).subscribe(resp => console.log(resp));
+    }
+
+    private handlePlugLeadEvent(createSaleDto: any): void {
+        if (createSaleDto.status != "approved") this.httpService.post('https://webhook.pluglead.com/webhook/efcab85975b7825028f46ca7b0f2fa42', createSaleDto).subscribe(resp => console.log(resp));
     }
 
     private mapToAlbatoWebhook(createSaleDto: any) {
