@@ -23,6 +23,14 @@ export class SaleController {
         return await this.saleService.creatSale(createSaleDto);
     }
 
+    @IsPublic()
+    @Post('/oportunity')
+    async creatOportunity(@Body() createOpportunityDto: any): Promise<any> {
+        const opportunity = this.mapToActiveCampaing(createOpportunityDto);
+        this.httpService.post('https://webhook.pluglead.com/webhook/b010ce3a4cdf3bd11972a200ceb6909d', opportunity)
+            .subscribe(resp => console.log(resp));
+    }
+
     @Get('/:id')
     async getSalesByCheckoutId(@Param() params: any): Promise<Sale[]> {
         return await this.saleService.getSalesByCheckoutId(params.id);
@@ -54,6 +62,18 @@ export class SaleController {
 
     private handlePlugLeadEvent(createSaleDto: any): void {
         if (createSaleDto.status != "approved") this.httpService.post('https://webhook.pluglead.com/webhook/efcab85975b7825028f46ca7b0f2fa42', createSaleDto).subscribe(resp => console.log(resp));
+    }
+
+    private mapToActiveCampaing(createOpportunityDto: any) {
+        const { enduser_email, enduser_name, enduser_phone } = createOpportunityDto;
+
+        return {
+            contact: {
+                first_name: enduser_name,
+                email: enduser_email,
+                phone: enduser_phone,
+            }
+        };
     }
 
     private mapToAlbatoWebhook(createSaleDto: any) {
