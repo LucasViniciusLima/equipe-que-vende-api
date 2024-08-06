@@ -67,13 +67,15 @@ export class SaleController {
     private mapToActiveCampaing(createOpportunityDto: any) {
         const { enduser_email, enduser_name, enduser_phone } = createOpportunityDto;
 
-        return {
-            contact: {
-                first_name: enduser_name,
-                email: enduser_email,
-                phone: enduser_phone,
-            }
-        };
+        let contact = {};
+        contact['first_name'] = enduser_name;
+        contact['email'] = enduser_email;
+        contact['phone'] = enduser_phone;
+
+        let request = { contact: {} };
+        request.contact = contact;
+
+        return request;
     }
 
     private mapToAlbatoWebhook(createSaleDto: any) {
