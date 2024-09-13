@@ -47,6 +47,11 @@ export class SaleController {
             this.httpService.post('https://movt-main-api.azurewebsites.net/api/v1/webhook/self-scheduling-webhook/guru', createSaleDto).subscribe(resp => console.log(resp));
             return;
         }
+        if (createSaleDto.procuct.id == "1721244008") {
+            // waiting for the implementation only
+            this.httpService.post('https://movt-main-api.azurewebsites.net/api/v1/webhook/guru', createSaleDto).subscribe(resp => console.log(resp));
+            return;
+        }
     }
 
     private handleClintEvent(createSaleDto: any): void {
